@@ -48,4 +48,14 @@ public class Question {
   @Column(name = "created_at", insertable = false, updatable = false)
   @Temporal(TemporalType.TIMESTAMP)
   private Date createdOn;
+
+  @Override
+  public String toString() {
+    return "Question{" +
+        "id=" + id +
+        ", title='" + title + '\'' +
+        ", description='" + description + '\'' +
+        ", createdOn=" + createdOn +
+        '}';
+  }
 }

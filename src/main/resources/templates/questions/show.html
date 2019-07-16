@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body})}">
+
+<body>
+<h1>Question</h1>
+<a th:href="@{'/questions/index'}" th:text="'View all questions'"></a>
+<div th:object="${question}">
+  <p th:text="'Title: ' + *{title}"></p>
+  <p th:text="'Description: ' + *{description}"></p>
+</div>
+</body>
+</html>

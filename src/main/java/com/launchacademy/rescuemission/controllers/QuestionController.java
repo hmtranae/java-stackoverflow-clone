@@ -52,7 +52,7 @@ public class QuestionController {
 
   @GetMapping("/questions/show/{id}")
   public String getQuestion(@PathVariable Integer id, Model model) {
-    model.addAttribute("question", questionRepository.findById(id));
+    questionRepository.findById(id).ifPresent(question -> model.addAttribute("question", question));
     return "questions/show";
   }
 }
