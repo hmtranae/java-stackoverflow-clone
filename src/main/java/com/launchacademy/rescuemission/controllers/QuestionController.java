@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -47,5 +48,11 @@ public class QuestionController {
     model.addAttribute("questions", questionRepository.findAll(Sort.by(Direction.DESC,
         "createdOn")));
     return "questions/index";
+  }
+
+  @GetMapping("/questions/show/{id}")
+  public String getQuestion(@PathVariable Integer id, Model model) {
+    model.addAttribute("question", questionRepository.findById(id));
+    return "questions/show";
   }
 }
