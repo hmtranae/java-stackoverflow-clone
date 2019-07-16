@@ -10,7 +10,7 @@
     <div th:object="${question}">
       <li>
         <p th:text="'Name: ' + *{title}"></p>
-        <p th:text="'Posting date: ' + ${#dates.format(question.created_at, 'MMM-dd-yyyy')}"></p>
+        <p th:text="'Posting date: ' + ${#dates.format(question.createdOn, 'MMM dd yyyy')}"></p>
       </li>
     </div>
   </div>

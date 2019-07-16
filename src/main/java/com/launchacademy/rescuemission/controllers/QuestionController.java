@@ -3,6 +3,8 @@ package com.launchacademy.rescuemission.controllers;
 import com.launchacademy.rescuemission.models.Question;
 import com.launchacademy.rescuemission.repositories.QuestionRepository;
 import javax.validation.Valid;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -42,7 +44,8 @@ public class QuestionController {
 
   @GetMapping("/questions/index")
   public String getAllQuestions(Model model) {
-    model.addAttribute("questions", questionRepository.findAll());
+    model.addAttribute("questions", questionRepository.findAll(Sort.by(Direction.DESC,
+        "createdOn")));
     return "questions/index";
   }
 }

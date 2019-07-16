@@ -47,5 +47,5 @@ public class Question {
   @Basic(optional = false)
   @Column(name = "created_at", insertable = false, updatable = false)
   @Temporal(TemporalType.TIMESTAMP)
-  private Date created_at;
+  private Date createdOn;
 }
