@@ -9,7 +9,8 @@
   <div th:each="question : ${questions}">
     <div th:object="${question}">
       <li>
-        <p th:text="'Name: ' + *{title}"></p>
+<!--        <p th:text="'Name: ' + *{title}"></p>-->
+        <a th:href="@{'/questions/show/' + *{id}}" th:text="'Title: ' + *{title}"></a>
         <p th:text="'Posting date: ' + ${#dates.format(question.createdOn, 'MMM dd yyyy')}"></p>
       </li>
     </div>
