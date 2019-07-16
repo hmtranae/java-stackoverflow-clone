@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html th:fragment="layout (template)" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Questions</title>
+  <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8"/>
+  <link rel="stylesheet" type="text/css" media="all" href="../static/css/main.css"
+        th:href="@{/css/main.css}"/>
+</head>
+<body>
+<th:block th:include="${template}"/>
+</body>
+</html>

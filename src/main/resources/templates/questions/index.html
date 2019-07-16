@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{fragments/layout :: layout (~{::body})}">
+
+<body>
+<h1>Questions</h1>
+<a th:href="@{'/questions/new'}" th:text="'Add a new question'"></a>
+<ul>
+  <div th:each="question : ${questions}">
+    <div th:object="${question}">
+      <li>
+        <p th:text="'Name: ' + *{title}"></p>
+        <p th:text="'Posting date: ' + ${#dates.format(question.created_at, 'MMM-dd-yyyy')}"></p>
+      </li>
+    </div>
+  </div>
+</ul>
+</body>
+</html>
