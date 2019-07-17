@@ -30,7 +30,7 @@ public class Answer {
   @Column(name = "id", nullable = false, unique = true)
   private Integer id;
 
-  @NotBlank
+  @NotBlank(message = "Can't be blank")
   @NonNull
   @Size(min = 50, message = "Must be at least 50 characters long")
   private String description;

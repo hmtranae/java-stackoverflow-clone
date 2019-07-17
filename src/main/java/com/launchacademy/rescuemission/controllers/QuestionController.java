@@ -60,10 +60,16 @@ public class QuestionController {
   @GetMapping("/questions/show/{questionId}")
   public String getQuestion(@PathVariable Integer questionId, @ModelAttribute Answer answer,
       Model model) {
+    getSpecificQuestion(questionId, answer, model);
+    return "questions/show";
+  }
+
+  private void getSpecificQuestion(
+      @PathVariable Integer questionId,
+      @ModelAttribute Answer answer, Model model) {
     questionRepository.findById(questionId)
         .ifPresent(question -> model.addAttribute("question", question));
     model.addAttribute("answer", answer);
-    return "questions/show";
   }
 
   @PostMapping("/questions/{questionId}/answers")
@@ -73,6 +79,7 @@ public class QuestionController {
       Model model,
       @PathVariable Integer questionId) {
     if (bindingResult.hasErrors()) {
+      getSpecificQuestion(questionId, answer, model);
       return "questions/show";
     }
     Question question = questionRepository.findById(questionId).orElse(null);
