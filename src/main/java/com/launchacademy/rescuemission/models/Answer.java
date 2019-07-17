@@ -38,4 +38,13 @@ public class Answer {
   @ManyToOne
   @JoinColumn(name = "question_id", nullable = false)
   private Question question;
+
+  @Override
+  public String toString() {
+    return "Answer{" +
+        "id=" + id +
+        ", description='" + description + '\'' +
+        ", question=" + question +
+        '}';
+  }
 }
