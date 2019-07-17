@@ -1,12 +1,14 @@
 package com.launchacademy.rescuemission.models;
 
 import java.util.Date;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -48,6 +50,9 @@ public class Question {
   @Column(name = "created_at", insertable = false, updatable = false)
   @Temporal(TemporalType.TIMESTAMP)
   private Date createdOn;
+
+  @OneToMany(mappedBy = "question")
+  private Set<Answer> answers;
 
   @Override
   public String toString() {

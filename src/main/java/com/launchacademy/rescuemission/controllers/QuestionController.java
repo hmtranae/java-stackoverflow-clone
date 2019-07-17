@@ -1,5 +1,6 @@
 package com.launchacademy.rescuemission.controllers;
 
+import com.launchacademy.rescuemission.models.Answer;
 import com.launchacademy.rescuemission.models.Question;
 import com.launchacademy.rescuemission.repositories.QuestionRepository;
 import javax.validation.Valid;
@@ -51,8 +52,9 @@ public class QuestionController {
   }
 
   @GetMapping("/questions/show/{id}")
-  public String getQuestion(@PathVariable Integer id, Model model) {
+  public String getQuestion(@PathVariable Integer id, @ModelAttribute Answer answer, Model model) {
     questionRepository.findById(id).ifPresent(question -> model.addAttribute("question", question));
+    model.addAttribute("answer", answer);
     return "questions/show";
   }
 }
