@@ -10,6 +10,16 @@
   <p th:text="'Description: ' + *{description}"></p>
 </div>
 
-<!-- todo: form for answers to question -->
+<form action="#" th:action="@{'/questions/' + ${question.id} + '/answers'}" th:object="${answer}" method="POST">
+  <div>
+    <label th:for="description">Description</label>
+    <input type="text" id="description" th:field="*{description}"/>
+    <p th:errors="*{description}"></p>
+  </div>
+
+  <div>
+    <input type="submit" value="Log Answer"/>
+  </div>
+</form>
 </body>
 </html>
