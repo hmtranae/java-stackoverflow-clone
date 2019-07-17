@@ -10,10 +10,12 @@
   <p th:text="'Description: ' + *{description}"></p>
 </div>
 
+<h2>Answer Question</h2>
 <form action="#" th:action="@{'/questions/' + ${question.id} + '/answers'}" th:object="${answer}" method="POST">
   <div>
     <label th:for="description">Description</label>
-    <input type="text" id="description" th:field="*{description}"/>
+    <br/>
+    <textarea rows="4" cols="40" id="description" th:field="*{description}"></textarea>
     <p th:errors="*{description}"></p>
   </div>
 
