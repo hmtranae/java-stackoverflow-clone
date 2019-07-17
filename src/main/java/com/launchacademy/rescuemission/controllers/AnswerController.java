@@ -4,5 +4,4 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class AnswerController {
-  // todo: do answer controller
 }

@@ -11,7 +11,8 @@
 </div>
 
 <h2>Answer Question</h2>
-<form action="#" th:action="@{'/questions/' + ${question.id} + '/answers'}" th:object="${answer}" method="POST">
+<form action="#" th:action="@{'/questions/' + ${question.id} + '/answers'}" th:object="${answer}"
+      method="POST">
   <div>
     <label th:for="description">Description</label>
     <br/>
