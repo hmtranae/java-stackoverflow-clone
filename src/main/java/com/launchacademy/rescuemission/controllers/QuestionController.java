@@ -61,6 +61,7 @@ public class QuestionController {
   public String getQuestion(@PathVariable Integer questionId, @ModelAttribute Answer answer,
       Model model) {
     getSpecificQuestion(questionId, answer, model);
+    model.addAttribute("answers", answerRepository.findAllByQuestion(questionRepository.findById(questionId).orElse(null)));
     return "questions/show";
   }
 

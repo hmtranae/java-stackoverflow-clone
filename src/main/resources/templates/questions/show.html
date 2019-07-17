@@ -10,7 +10,14 @@
   <p th:text="'Description: ' + *{description}"></p>
 </div>
 
-<h2>Answer Question</h2>
+<h2>Answers</h2>
+<ul th:each="answer : ${answers}">
+  <div th:object="${answer}">
+    <p th:text="'- ' + *{description}"></p>
+  </div>
+</ul>
+
+<h2>Answer Question:</h2>
 <form action="#" th:action="@{'/questions/' + ${question.id} + '/answers'}" th:object="${answer}"
       method="POST">
   <div>
