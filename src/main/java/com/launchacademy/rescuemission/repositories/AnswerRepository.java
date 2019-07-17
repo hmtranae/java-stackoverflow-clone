@@ -1,5 +1,7 @@
 package com.launchacademy.rescuemission.repositories;
 
-public class AnswerRepository {
-  // todo: do answer repository
+import com.launchacademy.rescuemission.models.Answer;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+public interface AnswerRepository extends PagingAndSortingRepository<Answer, Integer> {
 }
