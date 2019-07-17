@@ -52,9 +52,22 @@ public class QuestionController {
   }
 
   @GetMapping("/questions/show/{id}")
-  public String getQuestion(@PathVariable Integer id, @ModelAttribute Answer answer, Model model) {
-    questionRepository.findById(id).ifPresent(question -> model.addAttribute("question", question));
+  public String getQuestion(@PathVariable Integer questionId, @ModelAttribute Answer answer, Model model) {
+    questionRepository.findById(questionId).ifPresent(question -> model.addAttribute("question", question));
     model.addAttribute("answer", answer);
     return "questions/show";
+  }
+
+  @PostMapping("/questions/{questionId}/answers")
+  public String postNewAnswer(
+      @PathVariable Integer questionId,
+      @ModelAttribute @Valid Answer answer,
+      BindingResult bindingResult,
+      Model model) {
+    if (bindingResult.hasErrors()) {
+      return "questions/show";
+    }
+    // todo: finish this
+    return null;
   }
 }
